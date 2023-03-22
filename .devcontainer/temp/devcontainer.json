@@ -1,0 +1,9 @@
+// https://aka.ms/devcontainer.json
+{
+	"name": "Temporary PHP Container",
+	"service": "laravel.test",
+	"workspaceFolder": "/var/www/html",
+	"features": {
+		"ghcr.io/devcontainers/features/php:1": {}
+	}
+}
