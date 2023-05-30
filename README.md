@@ -1,6 +1,12 @@
-insert build script URL
-composer install breeze
-breeze install vue ssr dark
+# Laravel Skeleton
+This repo is a clonable template to start new Laravel projects with a setup that includes Sail (with MariaDB, Mailpit, Meilisearch, and MinIO), Breeze, Vue + Inertia with SSR and dark mode, and Tailwind.
+
+Here are the general steps I used to create this repo:
+1. `curl -s "https://laravel.build/laravel-skeleton?with=mariadb,mailpit,meilisearch,minio&devcontainer" | bash`
+2. `composer require laravel/breeze --dev`
+3. `php artisan breeze:install vue --ssr --dark`
+
+I also made some manual modifications which allow this repo to be used with GitHub Codespaces.
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
