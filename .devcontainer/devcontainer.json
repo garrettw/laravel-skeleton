@@ -1,8 +1,8 @@
 // https://aka.ms/devcontainer.json
 {
-	"name": "Laravel Sail",
+    "name": "Laravel Sail",
     "dockerComposeFile": [
-		"../docker-compose.yml"
+        "../docker-compose.yml"
     ],
     "service": "laravel.test",
     "workspaceFolder": "/var/www/html",
@@ -13,6 +13,7 @@
                 "alefragnani.bookmarks",
                 "predrag-nikolic.php-class-helper",
                 "ikappas.composer",
+                "ms-azuretools.vscode-docker",
                 "dbaeumer.vscode-eslint",
                 "eamodio.gitlens",
                 "nhoizey.gremlins",
