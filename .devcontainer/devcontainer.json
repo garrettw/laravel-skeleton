@@ -1,54 +1,54 @@
 // https://aka.ms/devcontainer.json
 {
 	"name": "Laravel Sail (customized)",
-	"dockerComposeFile": [
+    "dockerComposeFile": [
 		"./docker-compose.yml"
-	],
-	"service": "laravel.test",
-	"workspaceFolder": "/var/www/html",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"formulahendry.auto-complete-tag",
-				"alefragnani.bookmarks",
-				"predrag-nikolic.php-class-helper",
-				"ikappas.composer",
-				"dbaeumer.vscode-eslint",
-				"eamodio.gitlens",
-				"nhoizey.gremlins",
-				"heybourn.headwind",
-				"ecmel.vscode-html-css",
-				"zignd.html-css-class-completion",
-				"oderwat.indent-rainbow",
-				"onecentlin.laravel-extension-pack",
-				"austenc.laravel-docs",
-				"absszero.vscode-laravel-goto",
-				"georgykurian.laravel-ide-helper",
-				"ahinkle.laravel-model-snippets",
-				"open-southeners.laravel-pint",
-				"xabikos.javascriptsnippets",
-				"jakebathman.mysql-syntax",
-				"christian-kohler.npm-intellisense",
-				"xdebug.php-pack",
-				"neilbrayfield.php-docblocker",
-				"bmewburn.vscode-intelephense-client",
-				"mehedidracula.php-namespace-resolver",
-				"bradlc.vscode-tailwindcss",
-				"alfredbirk.tailwind-documentation",
-				"stivo.tailwind-fold",
-				"pflannery.vscode-versionlens",
-				"octref.vetur",
-				"vue.volar",
-				"hollowtree.vue-snippets",
-				"redhat.vscode-yaml",
-				"gamunu.vscode-yarn"
-			],
-			"settings": {}
-		}
-	},
-	"remoteUser": "sail",
-	"postCreateCommand": "chown -R 1000:1000 /var/www/html"
-	// "forwardPorts": [],
-	// "runServices": [],
-	// "shutdownAction": "none",
+    ],
+    "service": "laravel.test",
+    "workspaceFolder": "/var/www/html",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "formulahendry.auto-complete-tag",
+                "alefragnani.bookmarks",
+                "predrag-nikolic.php-class-helper",
+                "ikappas.composer",
+                "dbaeumer.vscode-eslint",
+                "eamodio.gitlens",
+                "nhoizey.gremlins",
+                "heybourn.headwind",
+                "ecmel.vscode-html-css",
+                "zignd.html-css-class-completion",
+                "oderwat.indent-rainbow",
+                "onecentlin.laravel-extension-pack",
+                "austenc.laravel-docs",
+                "absszero.vscode-laravel-goto",
+                "georgykurian.laravel-ide-helper",
+                "ahinkle.laravel-model-snippets",
+                "open-southeners.laravel-pint",
+                "xabikos.javascriptsnippets",
+                "jakebathman.mysql-syntax",
+                "christian-kohler.npm-intellisense",
+                "xdebug.php-pack",
+                "neilbrayfield.php-docblocker",
+                "bmewburn.vscode-intelephense-client",
+                "mehedidracula.php-namespace-resolver",
+                "bradlc.vscode-tailwindcss",
+                "alfredbirk.tailwind-documentation",
+                "stivo.tailwind-fold",
+                "pflannery.vscode-versionlens",
+                "octref.vetur",
+                "vue.volar",
+                "hollowtree.vue-snippets",
+                "redhat.vscode-yaml",
+                "gamunu.vscode-yarn"
+            ],
+            "settings": {}
+        }
+    },
+    "remoteUser": "sail",
+    "postCreateCommand": "chown -R 1000:1000 /var/www/html && cp .env.example .env && composer install && php artisan key:generate && php artisan storage:link && npm install && npm run dev"
+    // "forwardPorts": [],
+    // "runServices": [],
+    // "shutdownAction": "none",
 }
