@@ -18,6 +18,7 @@ services:
             LARAVEL_SAIL: 1
             XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
             XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
+            IGNITION_LOCAL_SITES_PATH: '${PWD}'
         volumes:
             - '.:/var/www/html'
         networks:
@@ -33,7 +34,7 @@ services:
             - '${FORWARD_DB_PORT:-3306}:3306'
         environment:
             MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
-            MYSQL_ROOT_HOST: "%"
+            MYSQL_ROOT_HOST: '%'
             MYSQL_DATABASE: '${DB_DATABASE}'
             MYSQL_USER: '${DB_USERNAME}'
             MYSQL_PASSWORD: '${DB_PASSWORD}'
@@ -44,7 +45,11 @@ services:
         networks:
             - sail
         healthcheck:
-            test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
+            test:
+                - CMD
+                - mysqladmin
+                - ping
+                - '-p${DB_PASSWORD}'
             retries: 3
             timeout: 5s
     mailpit:
@@ -63,7 +68,12 @@ services:
         networks:
             - sail
         healthcheck:
-            test: ["CMD", "wget", "--no-verbose", "--spider",  "http://localhost:7700/health"]
+            test:
+                - CMD
+                - wget
+                - '--no-verbose'
+                - '--spider'
+                - 'http://localhost:7700/health'
             retries: 3
             timeout: 5s
     minio:
@@ -72,15 +82,19 @@ services:
             - '${FORWARD_MINIO_PORT:-9000}:9000'
             - '${FORWARD_MINIO_CONSOLE_PORT:-8900}:8900'
         environment:
-            MINIO_ROOT_USER: 'sail'
-            MINIO_ROOT_PASSWORD: 'password'
+            MINIO_ROOT_USER: sail
+            MINIO_ROOT_PASSWORD: password
         volumes:
             - 'sail-minio:/data/minio'
         networks:
             - sail
-        command: minio server /data/minio --console-address ":8900"
+        command: 'minio server /data/minio --console-address ":8900"'
         healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+            test:
+                - CMD
+                - curl
+                - '-f'
+                - 'http://localhost:9000/minio/health/live'
             retries: 3
             timeout: 5s
 networks:
